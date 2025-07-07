@@ -6,12 +6,18 @@ import java.util.Map;
 //Since can't use org.json
 public class JSONObject {
     private Map<String,Object> map=new HashMap<>();
+
+    public JSONObject() {
+    }
+
     public void put(String key,Object value){
         map.put(key, value);
     }
+
     public String getString(String key){
         return (String) map.get(key);
     }
+
     public JSONArray getJSONArray(String key){
         return (JSONArray) map.get(key);
     }
