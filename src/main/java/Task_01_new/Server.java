@@ -3,6 +3,7 @@ package Task_01_new;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -48,6 +49,18 @@ public class Server {
                         break;
                     }
                 }
+                //Capturing the input typed by the server
+                String serverInput;
+                BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(),true);
+
+                //Type a reply back to the client
+                System.out.println("Type reply to client:   ");
+                String serverResponse = stdIn.readLine();
+
+                //send the server's message down to the network pipeline
+                out.println(serverResponse);
+
 
             }
         }catch (IOException e){
